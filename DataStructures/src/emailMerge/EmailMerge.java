@@ -24,7 +24,7 @@ public class EmailMerge {
 			if(i.equals("<<N>>,")){
 				i = peopleTest[0];
 			}
-			System.out.println(words[1]);
+			
 		}
 		
 		
