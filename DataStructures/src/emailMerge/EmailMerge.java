@@ -14,7 +14,7 @@ public class EmailMerge {
 				temp += input.nextLine() + "\n";
 
 			while (input2.hasNextLine()) {
-				String[] info = input.nextLine().split(" ");
+				String[] info = input2.nextLine().split(" ");
 				String message = temp.replaceAll("<<N>>,", info[0]).replaceAll("<<A>>", info[1]).replaceAll("<<G>>,",
 						info[2]);
 
