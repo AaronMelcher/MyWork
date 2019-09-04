@@ -26,8 +26,7 @@ public class EmailMerge {
 			//Runs through each person, and creates .txt files based on the number of people in the people.txt file
 			while (input2.hasNextLine()) {
 				String[] info = input2.nextLine().split(" ");
-				String message = temp.replaceAll("<<N>>,", info[0]).replaceAll("<<A>>", info[1]).replaceAll("<<G>>,",
-						info[2]);
+				String message = temp.replaceAll("<<N>>,", info[0]).replaceAll("<<A>>", info[1]).replaceAll("<<G>>,", info[2]);
 
 				File file = new File(info[0] + ".txt");
 
