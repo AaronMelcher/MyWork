@@ -1,3 +1,6 @@
-John 35 male
-Sally 28 female
-Megan 55 female
+Bill 26 Male
+Claire 23 Female
+Cait 30 Female
+Chris 23 Male
+Bob 29 Male
+John 90 Male
