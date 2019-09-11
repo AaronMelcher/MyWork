@@ -100,5 +100,6 @@ class PrefixAverage {
 
 	public static void main(String[] args) throws IOException {
 		PrintWriter output = new PrintWriter(new File("src/prefixAverage/output.txt"));
+		
 	}
 }
