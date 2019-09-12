@@ -67,39 +67,41 @@ class PrefixAverage {
 
 	/**
 	 * 
-	 * @param An array of random size
-	 * @return Time it takes for prefixAverage1 to run
+	 * @param An int for the size of an array
+	 * @return Array ordered {size of the array, prefixAverage1 runtime, prefixAverage2 runtime}
 	 */
 
-	public static long calculateTime1(double[] x) {
+	public static long[] calculateTime(int size) {
 		long start;
 		long end;
+		double[] x = new double[size];
+		long[] data = new long[3];
+		data[0] = size;
+		for (int i = 0; i < x.length; i++)
+			x[i] = ((double) (Math.random() * 50));
 
 		start = System.currentTimeMillis();
 		prefixAverage1(x);
 		end = System.currentTimeMillis();
-
-		return start - end;
-	}
-
-	/**
-	 * 
-	 * @param An array of random size
-	 * @return Time it takes for prefixAverage2 to run
-	 */
-	public static long calculateTime2(double[] x) {
-		long start;
-		long end;
+		data[1] = end - start;
 
 		start = System.currentTimeMillis();
 		prefixAverage2(x);
 		end = System.currentTimeMillis();
+		data[2] = end - start;
 
-		return start - end;
+		return data;
+
 	}
 
 	public static void main(String[] args) throws IOException {
-		PrintWriter output = new PrintWriter(new File("src/prefixAverage/output.txt"));
-		
+		Scanner in = new Scanner(System.in);
+		System.out.println("Enter an integer");
+		long[] data = calculateTime(in.nextInt());
+
+		for (int i = 0; i < data.length; i++)
+			System.out.println(data[i]);
+
+		in.close();
 	}
 }
