@@ -68,7 +68,7 @@ class PrefixAverage {
 	/**
 	 * 
 	 * @param An int for the size of an array
-	 * @return Array ordered {size of the array, prefixAverage1 runtime, prefixAverage2 runtime}
+	 * @return Array ordered {size of the x array (used in the methods), prefixAverage1 runtime(ms), prefixAverage2 runtime(ms)}
 	 */
 
 	public static long[] calculateTime(int size) {
