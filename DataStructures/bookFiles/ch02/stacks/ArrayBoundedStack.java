@@ -81,5 +81,10 @@ public class ArrayBoundedStack<T> implements StackInterface<T> {
 			  else
 				  this.pop();
 	  }	  
+	  
+	  public void clear() {
+		  while(!isEmpty()) {
+			  pop();
+		  }
   }
 }
