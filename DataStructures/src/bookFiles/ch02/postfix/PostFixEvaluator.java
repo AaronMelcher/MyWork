@@ -4,16 +4,17 @@
 // Provides a postfix expression evaluation.
 //----------------------------------------------------------------------
 
-package ch02.postfix;
+package bookFiles.ch02.postfix;
 
-import ch02.stacks.*;
+import bookFiles.ch02.stacks.*;
 import java.util.Scanner;
 
 public class PostFixEvaluator
 {
   public static int evaluate(String expression)
   {
-    Scanner tokenizer = new Scanner(expression);
+    @SuppressWarnings("resource")
+	Scanner tokenizer = new Scanner(expression);
     StackInterface<Integer> stack = new ArrayBoundedStack<Integer>(50);  
 
     int value;

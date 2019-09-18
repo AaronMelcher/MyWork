@@ -1,8 +1,13 @@
-package ch02.postfix;
+package bookFiles.ch02.postfix;
 
 public class PostFixException extends RuntimeException
 {
-  public PostFixException()
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+public PostFixException()
   {
     super();
   }

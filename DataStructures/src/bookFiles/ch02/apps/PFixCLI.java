@@ -4,10 +4,12 @@
 // Evaluates postfix expressions entered by the user.
 // Uses a command line interface.
 //----------------------------------------------------------------------
-package ch02.apps;
+package bookFiles.ch02.apps;
 
 import java.util.Scanner;
-import ch02.postfix.*;
+
+import bookFiles.ch02.postfix.PostFixEvaluator;
+import bookFiles.ch02.postfix.*;
 
 public class PFixCLI 
 {

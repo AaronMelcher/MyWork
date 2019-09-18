@@ -2,7 +2,12 @@ package bookFiles.ch02.stacks;
 
 public class StackOverflowException extends RuntimeException
 {
-  public StackOverflowException()
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+public StackOverflowException()
   {
     super();
   }
