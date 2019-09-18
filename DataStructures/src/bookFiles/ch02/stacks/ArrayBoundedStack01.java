@@ -1,4 +1,4 @@
-package ch02.stacks;
+package bookFiles.ch02.stacks;
 
 public class ArrayBoundedStack01<T> implements StackInterface<T> 
 {
