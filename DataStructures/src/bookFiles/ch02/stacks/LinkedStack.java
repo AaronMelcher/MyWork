@@ -4,7 +4,7 @@
 // Implements StackInterface using a linked list to hold the elements.
 //-----------------------------------------------------------------------
 
-package bookFiles.ch02.stacks;
+package ch02.stacks;
 
 import support.LLNode;
 

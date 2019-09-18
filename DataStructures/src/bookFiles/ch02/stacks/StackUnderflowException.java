@@ -1,4 +1,4 @@
-package bookFiles.ch02.stacks;
+package ch02.stacks;
 
 public class StackUnderflowException extends RuntimeException
 {
