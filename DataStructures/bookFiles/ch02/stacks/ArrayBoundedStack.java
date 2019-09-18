@@ -73,9 +73,10 @@ public class ArrayBoundedStack<T> implements StackInterface<T> {
 	}
 
 	public void remove(int n) {
+	//Removes n items or all if n is greater than the number of elements in the stack	
 	  for(int i = 0; i < n; i++) {
 		  if(this.isEmpty()) {
-			  throws new StackUnderflowException("Attempted to remove more elements than what is in the stack")
+			  throws new StackUnderflowException("n exceeds the size of the stack, all elements have been removed")
 			  break;
 			  }
 			  else
@@ -83,8 +84,10 @@ public class ArrayBoundedStack<T> implements StackInterface<T> {
 	  }	  
 	  
 	  public void clear() {
-		  while(!isEmpty()) {
+	  //Fully clears all the elements from the stack  
+		  elements.fill(null);
+		  /* while(!isEmpty()) {
 			  pop();
-		  }
+		  } */
   }
 }
