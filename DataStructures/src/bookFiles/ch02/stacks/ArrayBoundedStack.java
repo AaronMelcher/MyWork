@@ -77,6 +77,7 @@ public class ArrayBoundedStack<T> implements StackInterface<T> {
 	public void remove(int n) {
 		// Removes n items or all if n is greater than the number of elements in the
 		// stack
+		//O(topIndex + 1) 
 		for (int i = 0; i < n; i++) {
 			if (this.isEmpty()) 
 				break;
@@ -87,6 +88,7 @@ public class ArrayBoundedStack<T> implements StackInterface<T> {
 
 	public void clear() {
 		// Fully clears all the elements from the stack
+		//O(topIndex + 1)
 		while (!isEmpty())
 			pop();
 	}
