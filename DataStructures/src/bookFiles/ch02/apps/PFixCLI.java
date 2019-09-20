@@ -28,25 +28,26 @@ public class PFixCLI {
 
 			if (!STOP.equals(expression)) {
 				// Obtain and output result of expression evaluation.
+				inputs = new Scanner(expression);
+				largest = inputs.nextInt();
+				smallest = largest;
+				count++;
+				total += largest;
+				while (inputs.hasNext()) {
+					if (inputs.hasNextInt()) {
+						num = inputs.nextInt();
+						if (num > largest)
+							largest = num;
+						else if (num < smallest)
+							smallest = num;
+						total += num;
+						count++;
+					} else {
+						inputs.next();
+					}
+				}
 				try {
 					result = PostFixEvaluator.evaluate(expression);
-					inputs = new Scanner(expression);
-					largest = inputs.nextInt();
-					smallest = largest;
-					count++;
-					total += largest;
-					while (inputs.hasNext()) {
-						if (inputs.hasNextInt()) {
-							num = inputs.nextInt();
-							if (num > largest)
-								largest = num;
-							else if (num < smallest)
-								smallest = num;
-							total += num;
-							count++;
-						}
-					}
-
 					// Output result.
 					System.out.println("Result = " + result);
 					System.out.println("****STATISTICS****");
@@ -60,6 +61,11 @@ public class PFixCLI {
 				} catch (PostFixException error) {
 					// Output error message.
 					System.out.println("Error in expression - " + error.getMessage());
+					System.out.println("****STATISTICS****");
+					System.out.println("Largest: " + largest);
+					System.out.println("Smallest: " + smallest);
+					System.out.println("Count: " + count);
+					System.out.println("Average: " + total / count);
 				}
 			}
 		}
