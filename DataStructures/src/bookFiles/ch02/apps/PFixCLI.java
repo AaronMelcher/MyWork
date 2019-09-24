@@ -66,6 +66,8 @@ public class PFixCLI {
 					System.out.println("Smallest: " + smallest);
 					System.out.println("Count: " + count);
 					System.out.println("Average: " + total / count);
+					count = 0;
+					total = 0;
 				}
 			}
 		}
