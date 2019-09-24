@@ -8,6 +8,7 @@ public class TestSList {
 		myList.add("A");
 		myList.add("B");
 		myList.add("C");
+		myList.add("E");
 		myList.insetLast("D");
 		System.out.println(myList);
 		System.out.println(myList.equals(myList));
