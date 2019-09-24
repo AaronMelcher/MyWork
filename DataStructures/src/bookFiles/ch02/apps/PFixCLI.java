@@ -6,7 +6,7 @@
 //----------------------------------------------------------------------
 package bookFiles.ch02.apps;
 
-import java.util.Scanner;
+import java.util.*;
 
 import bookFiles.ch02.postfix.PostFixEvaluator;
 import bookFiles.ch02.postfix.*;
@@ -14,12 +14,11 @@ import bookFiles.ch02.postfix.*;
 public class PFixCLI {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		Scanner inputs;
 
 		String expression = null; // expression to be evaluated
 		final String STOP = "X"; // indicates end of input
 		int result; // result of evaluation
-		int smallest, largest, count = 0, total = 0, num;
+		int smallest, largest, count = 0, total = 0;
 
 		while (!STOP.equals(expression)) {
 			// Get next expression to be processed.
@@ -28,24 +27,23 @@ public class PFixCLI {
 
 			if (!STOP.equals(expression)) {
 				// Obtain and output result of expression evaluation.
-				inputs = new Scanner(expression);
-				largest = inputs.nextInt();
-				smallest = largest;
-				count++;
-				total += largest;
-				while (inputs.hasNext()) {
-					if (inputs.hasNextInt()) {
-						num = inputs.nextInt();
-						if (num > largest)
-							largest = num;
-						else if (num < smallest)
-							smallest = num;
-						total += num;
-						count++;
-					} else {
-						inputs.next();
-					}
+				String[] tokens = expression.split(" ");
+				ArrayList<Integer> numbers = new ArrayList<Integer>();
+				for (String token : tokens) {
+					if (token.matches("-?\\d+"))
+						numbers.add(Integer.parseInt(token));
 				}
+				largest = numbers.get(0);
+				smallest = largest;
+				for (int i : numbers) {
+					if (i > largest)
+						largest = i;
+					if (i < smallest)
+						smallest = i;
+					total += i;
+					count++;
+				}
+
 				try {
 					result = PostFixEvaluator.evaluate(expression);
 					// Output result.
