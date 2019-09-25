@@ -48,19 +48,21 @@ public class SList<T> {
 	}
 
 	/*
-	 * Moves through the linked list to add element to the end of list 
-	 * Time complexity = O(n)
+	 * Moves through the linked list to add element to the end of list and adds the
+	 * LLNode newNode to the end of the linked list Time complexity = O(n)
 	 * 
 	 */
-	public void insetLast(T element) {
+	public void insertLast(T element) {
 		if (list == null) {
 			this.add(element);
 		} else {
-			LLNode<T> node = new LLNode<T>(element);
-			LLNode<T> deepest = list;
-			while (deepest.getLink() != null)
-				deepest = deepest.getLink();
-			deepest.setLink(node);
+			LLNode<T> newNode = new LLNode<T>(element);
+			LLNode<T> last = list;
+			while (last.getLink() != null) { // Goes through the entire linked list until the link is equal to null
+				last = last.getLink();
+			}
+			last.setLink(newNode);
+			numElements++;
 		}
 	}
 

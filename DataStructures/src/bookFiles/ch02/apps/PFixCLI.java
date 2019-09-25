@@ -33,8 +33,9 @@ public class PFixCLI {
 					if (token.matches("-?\\d+"))
 						numbers.add(Integer.parseInt(token));
 				}
-				largest = numbers.get(0);
-				smallest = largest;
+				largest = Integer.MIN_VALUE; //Sets largest to min int value
+				smallest = Integer.MAX_VALUE; //Sets smallest to max int value
+
 				for (int i : numbers) {
 					if (i > largest)
 						largest = i;
@@ -63,7 +64,11 @@ public class PFixCLI {
 					System.out.println("Largest: " + largest);
 					System.out.println("Smallest: " + smallest);
 					System.out.println("Count: " + count);
-					System.out.println("Average: " + total / count);
+					try {  //Accounts for other exceptions with illegal symbols
+						System.out.println("Average: " + total / count);
+					} catch (ArithmeticException e) { 
+						System.out.println("Average: 0.0" );
+					}
 					count = 0;
 					total = 0;
 				}

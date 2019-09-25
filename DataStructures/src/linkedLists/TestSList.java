@@ -7,10 +7,17 @@ public class TestSList {
 		SList<String> myList = new SList<String>();
 		myList.add("A");
 		myList.add("B");
-		myList.add("C");
-		myList.add("E");
-		myList.insetLast("D");
+		myList.insertLast("C");
+		myList.add("D");
+		myList.insertLast("E");
 		System.out.println(myList);
-		System.out.println(myList.equals(myList));
+		SList<String> newList = new SList<String>();
+		newList.add("E");
+		newList.add("D");
+		newList.insertLast("C");
+		newList.add("B");
+		newList.insertLast("A");
+		System.out.println(newList.toString());
+		System.out.println(myList.equals(newList));
 	}
 }
