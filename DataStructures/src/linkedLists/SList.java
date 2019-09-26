@@ -66,9 +66,29 @@ public class SList<T> {
 		}
 	}
 
-	//
 	public boolean equals(Object other) {
+		if (other == null)
+			return false;
 		return this.toString().equals(other.toString());
+
+	}
+
+	public void removeFirst() {
+		list = list.getLink();
+		numElements++;
+	}
+
+	public void remove(T element) {
+		LLNode<T> currentNode = list;
+		if (currentNode.getInfo().equals(element)) {
+			list = currentNode.getLink();
+			return;
+		}
+		while (!(currentNode.getLink().getInfo().equals(element))) {
+			currentNode = currentNode.getLink();
+		}
+		LLNode<T> nodeToRemove = currentNode.getLink();
+		currentNode.setLink(nodeToRemove.getLink());
 	}
 
 }
