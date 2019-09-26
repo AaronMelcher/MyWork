@@ -13,7 +13,7 @@ public class TestSList {
 		System.out.println(myList.toString());
 		myList.removeFirst();
 		System.out.println(myList.toString());
-		myList.remove("D");
+		myList.remove("C");
 		System.out.println(myList.toString());
 	}
 }
