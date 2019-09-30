@@ -1,7 +1,12 @@
-package ch04.queues;
+package bookFiles.ch04.queues;
 
 public class QueueOverflowException extends RuntimeException
 {
+  /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
+
   public QueueOverflowException()
   {
     super();

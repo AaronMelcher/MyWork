@@ -8,7 +8,7 @@
 // capacity and one that allows the calling program to specify the capacity.
 //---------------------------------------------------------------------------
 
-package ch04.queues;
+package bookFiles.ch04.queues;
 
 public class SyncArrayBoundedQueue<T> implements QueueInterface<T> 
 {

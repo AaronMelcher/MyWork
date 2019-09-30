@@ -4,9 +4,9 @@
 // Implements QueueInterface using a linked list.
 //---------------------------------------------------------------------------
 
-package ch04.queues;
+package bookFiles.ch04.queues;
 
-import support.LLNode;
+import bookFiles.support.LLNode;
 
 public class LinkedQueue<T> implements QueueInterface<T>
 {
