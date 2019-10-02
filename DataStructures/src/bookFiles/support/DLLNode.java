@@ -4,7 +4,7 @@
 // Implements nodes holding info of class <T> for a doubly linked list.
 //----------------------------------------------------------------------------
 
-package support;
+package bookFiles.support;
 
 public class DLLNode<T> 
 {
