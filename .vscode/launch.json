@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - DLTest",
+            "request": "launch",
+            "mainClass": "doubleLinkedLists.DLTest",
+            "projectName": "DataStructures"
+        }
+    ]
+}

@@ -1,5 +1,6 @@
 package doubleLinkedLists;
 
+import bookFiles.ch02.stacks.StackUnderflowException;
 import bookFiles.support.DLLNode;
 
 /**
@@ -84,6 +85,9 @@ public class DList<T> {
 	}
 
 	public String toString() {
+		if(isEmpty()){
+			return "";
+		}
 		DLLNode<T> node = header;
 		String result = "";
 		while (node != null) {
@@ -103,7 +107,7 @@ public class DList<T> {
 			v = v.getForward();
 		}
 	}
-
+	//O(1)
 	public void removeLast() {
 		if (header == trailer) {
 			trailer = null;
@@ -117,12 +121,14 @@ public class DList<T> {
 		size--;
 
 	}
-
+	//O(1)
 	public void push(T element) {
 		addToLast(element);
 	}
-
+	//O(1)
 	public void pop() {
+		if(isEmpty())
+		throw new StackUnderflowException("Attempted pop on an empty stack");
 		removeLast();
 	}
 
