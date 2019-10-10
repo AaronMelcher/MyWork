@@ -15,11 +15,36 @@ public class DeQueDLL<T> implements DequeInterface<T> {
 
 	public void enqueueFront(T element) {
 		// TODO Auto-generated method stub
+		DLLNode<T> newNode = new DLLNode(element);
 		
+		if(isFull())
+		throw new QueueOverflowException("Enqueue attempted on a full queue");
+
+		if(front == null){
+		front = newNode;
+		front.setForward(rear);
+		rear.setBack(front);
+		}else{
+			newNode.setForward(front);
+			front.setBack(newNode);
+			front = newNode;
+		}
 	}
 
 	public void enqueueRear(T element) {
 		// TODO Auto-generated method stub
+		DLLNode<T> newNode = new DLLNode(element);
+
+		if(isFull())
+		throw new QueueOverflowException("Enqueue attempted on a full queue");
+
+		if(rear == null){
+			rear = newNode;
+			rear.setBack(front);
+			front.setForward(rear);
+		}else{
+			
+		}
 		
 	}
 
