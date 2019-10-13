@@ -24,6 +24,7 @@ public class DLLNode<T>
   
   public DLLNode getForward(){return forward;}
   public DLLNode getBack(){return back;}
+
 }
  
  

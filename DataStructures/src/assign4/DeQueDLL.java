@@ -4,9 +4,9 @@ import bookFiles.ch04.queues.*;
 import bookFiles.support.DLLNode;
 
 public class DeQueDLL<T> implements DequeInterface<T> {
-	
-	protected DLLNode<T> front, rear;      // reference to the front and rear of this deque
-	protected int numElements = 0; 			// number of elements in this deque
+
+	protected DLLNode<T> front, rear; // reference to the front and rear of this deque
+	protected int numElements = 0; // number of elements in this deque
 
 	public DeQueDLL() {
 		front = null;
@@ -14,63 +14,84 @@ public class DeQueDLL<T> implements DequeInterface<T> {
 	}
 
 	public void enqueueFront(T element) {
-		// TODO Auto-generated method stub
 		DLLNode<T> newNode = new DLLNode(element);
-		
-		if(isFull())
-		throw new QueueOverflowException("Enqueue attempted on a full queue");
 
-		if(front == null){
-		front = newNode;
-		front.setForward(rear);
-		rear.setBack(front);
-		}else{
-			newNode.setForward(front);
+		if (isEmpty()) {
+			front = newNode;
+			rear = newNode;
+		} else {
 			front.setBack(newNode);
+			newNode.setForward(front);
 			front = newNode;
 		}
+		numElements++;
 	}
 
 	public void enqueueRear(T element) {
-		// TODO Auto-generated method stub
 		DLLNode<T> newNode = new DLLNode(element);
 
-		if(isFull())
-		throw new QueueOverflowException("Enqueue attempted on a full queue");
-
-		if(rear == null){
+		if (isEmpty()) {
+			front = newNode;
 			rear = newNode;
-			rear.setBack(front);
-			front.setForward(rear);
-		}else{
-			
+		} else {
+			rear.setForward(newNode);
+			newNode.setBack(rear);
+			rear = newNode;
 		}
-		
+		numElements++;
 	}
 
 	public T dequeueFront() throws QueueUnderflowException {
-		// TODO Auto-generated method stub
-		return null;
+		DLLNode<T> temp = front;
+
+		if (isEmpty())
+			throw new QueueUnderflowException("Dequeue attempted on an empty deque");
+
+		front = temp.getForward();
+		temp.setForward(null);
+		numElements--;
+		return temp.getInfo();
 	}
 
 	public T dequeueRear() throws QueueUnderflowException {
-		// TODO Auto-generated method stub
-		return null;
+		DLLNode<T> temp = rear;
+
+		if (isEmpty())
+			throw new QueueUnderflowException("Dequeue attempted on an empty deque");
+
+		rear = temp.getBack();
+		temp.setBack(null);
+		numElements--;
+		return temp.getInfo();
 	}
 
 	public boolean isFull() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
+		if (front == null && rear == null)
+			return true;
 		return false;
 	}
 
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return numElements;
 	}
 
+	public String toString() {
+		if (isEmpty()) {
+			return "";
+		}
+		DLLNode<T> node = front;
+		String result = "";
+		while (node != null) {
+			result += node.getInfo();
+			result += "<-->";
+			node = (DLLNode<T>) node.getForward();
+		}
+
+		result = result.substring(0, result.length() - 4);
+		return result;
+	}
 }

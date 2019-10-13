@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - DequeDriver",
+            "request": "launch",
+            "mainClass": "assign4.DequeDriver",
+            "projectName": "DataStructures"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - DLTest",
             "request": "launch",
             "mainClass": "doubleLinkedLists.DLTest",
