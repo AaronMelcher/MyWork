@@ -12,7 +12,9 @@ public class DeQueDLL<T> implements DequeInterface<T> {
 		front = null;
 		rear = null;
 	}
-
+	/**
+ 	* Adds elements to the front of the deque
+ 	*/
 	public void enqueueFront(T element) {
 		DLLNode<T> newNode = new DLLNode(element);
 
@@ -26,7 +28,9 @@ public class DeQueDLL<T> implements DequeInterface<T> {
 		}
 		numElements++;
 	}
-
+	/**
+	 * Adds element to the rear of deque
+	 */
 	public void enqueueRear(T element) {
 		DLLNode<T> newNode = new DLLNode(element);
 
@@ -40,7 +44,9 @@ public class DeQueDLL<T> implements DequeInterface<T> {
 		}
 		numElements++;
 	}
-
+	/**
+	 * Removes the current front node of deque
+	 */
 	public T dequeueFront() throws QueueUnderflowException {
 		DLLNode<T> temp = front;
 
@@ -52,7 +58,9 @@ public class DeQueDLL<T> implements DequeInterface<T> {
 		numElements--;
 		return temp.getInfo();
 	}
-
+	/**
+	 * Removes the current rear node of deque
+	 */
 	public T dequeueRear() throws QueueUnderflowException {
 		DLLNode<T> temp = rear;
 
@@ -64,21 +72,30 @@ public class DeQueDLL<T> implements DequeInterface<T> {
 		numElements--;
 		return temp.getInfo();
 	}
-
+	/**
+	 * Returns false, linked list has no limit
+	 */
 	public boolean isFull() {
 		return false;
 	}
-
+	/**
+	 * Returns true if front and rear equal null,
+	 * else returns false
+	 */
 	public boolean isEmpty() {
 		if (front == null && rear == null)
 			return true;
 		return false;
 	}
-
+	/**
+	 * Returns the number of elements in the deque
+	 */
 	public int size() {
 		return numElements;
 	}
-
+	/**
+	 * Returns a string representation of the deque
+	 */
 	public String toString() {
 		if (isEmpty()) {
 			return "";
