@@ -120,7 +120,11 @@ public class DeQueDLL<T> implements DequeInterface<T> {
 		if (isEmpty()) {
 			return "";
 		}
-		DLLNode<T> node = front;
+		DLLNode<T> node;
+		if(front != null)
+		node = front;
+		else
+		node = rear;
 		String result = "";
 		while (node != null) {
 			result += node.getInfo();

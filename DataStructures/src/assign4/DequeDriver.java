@@ -64,9 +64,13 @@ public class DequeDriver {
                         temp = temp.getForward();
                         tempFor = tempFor.getForward();
                     }
-                    if(tempFor != null){
+                    if(tempFor != null && tempFor.getForward() != null){
                         temp.setForward(tempFor.getForward());
                         tempFor.getForward().setBack(temp);
+                        tempFor.setBack(null);
+                        tempFor.setForward(null);
+                    }else{
+                        temp.setForward(tempFor.getForward());
                         tempFor.setBack(null);
                         tempFor.setForward(null);
                     }
