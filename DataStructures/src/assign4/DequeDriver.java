@@ -50,6 +50,9 @@ public class DequeDriver {
             case 2:
                 System.out.println("Enter the integer you want to delete from the deque");
                 num = input.nextInt();
+                if(deque.isEmpty()){
+                    deque.dequeueFront();
+                }else
                 if(num == deque.front.getInfo())//Deletes if front is value
                     deque.dequeueFront();
                 else if(num == deque.rear.getInfo())//Deletes if rear is value
@@ -59,7 +62,7 @@ public class DequeDriver {
                     DLLNode<T> tempFor = temp.getForward();
                     while(tempFor.getInfo() != num){
                         temp = temp.getForward();
-                        tempFor.getForward();
+                        tempFor = tempFor.getForward();
                     }
                     if(tempFor != null){
                         temp.setForward(tempFor.getForward());

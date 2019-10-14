@@ -1,4 +1,4 @@
-spackage bookFiles.ch04.queues;
+package bookFiles.ch04.queues;
 
 public class QueueUnderflowException extends RuntimeException
 {

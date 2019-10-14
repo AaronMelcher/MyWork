@@ -12,9 +12,10 @@ public class DeQueDLL<T> implements DequeInterface<T> {
 		front = null;
 		rear = null;
 	}
+
 	/**
- 	* Adds elements to the front of the deque
- 	*/
+	 * Adds elements to the front of the deque
+	 */
 	public void enqueueFront(T element) {
 		DLLNode<T> newNode = new DLLNode(element);
 
@@ -28,6 +29,7 @@ public class DeQueDLL<T> implements DequeInterface<T> {
 		}
 		numElements++;
 	}
+
 	/**
 	 * Adds element to the rear of deque
 	 */
@@ -44,6 +46,7 @@ public class DeQueDLL<T> implements DequeInterface<T> {
 		}
 		numElements++;
 	}
+
 	/**
 	 * Removes the current front node of deque
 	 */
@@ -51,48 +54,65 @@ public class DeQueDLL<T> implements DequeInterface<T> {
 		DLLNode<T> temp = front;
 
 		if (isEmpty())
-			throw new QueueUnderflowException("Dequeue attempted on an empty deque");
-
-		front = temp.getForward();
-		temp.setForward(null);
-		numElements--;
-		return temp.getInfo();
+			throw new QueueUnderflowException();
+		if (front == rear) {
+			front.setForward(null);
+			front = null;
+			rear.setBack(null);
+			rear = null;
+			numElements--;
+			return temp.getInfo();
+		} else {
+			front = temp.getForward();
+			temp.setForward(null);
+			numElements--;
+			return temp.getInfo();
+		}
 	}
+
 	/**
 	 * Removes the current rear node of deque
 	 */
 	public T dequeueRear() throws QueueUnderflowException {
 		DLLNode<T> temp = rear;
-
 		if (isEmpty())
-			throw new QueueUnderflowException("Dequeue attempted on an empty deque");
-
-		rear = temp.getBack();
-		temp.setBack(null);
-		numElements--;
-		return temp.getInfo();
+			throw new QueueUnderflowException();
+		if (front == rear) {
+			front.setForward(null);
+			front = null;
+			rear.setBack(null);
+			rear = null;
+			numElements--;
+			return temp.getInfo();
+		} else {
+			rear = temp.getBack();
+			temp.setBack(null);
+			numElements--;
+			return temp.getInfo();
+		}
 	}
+
 	/**
 	 * Returns false, linked list has no limit
 	 */
 	public boolean isFull() {
 		return false;
 	}
+
 	/**
-	 * Returns true if front and rear equal null,
-	 * else returns false
+	 * Returns true if front and rear equal null, else returns false
 	 */
 	public boolean isEmpty() {
-		if (front == null && rear == null)
-			return true;
-		return false;
+		return numElements == 0;
 	}
+
 	/**
 	 * Returns the number of elements in the deque
 	 */
 	public int size() {
 		return numElements;
 	}
+
 	/**
 	 * Returns a string representation of the deque
 	 */
