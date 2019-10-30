@@ -2,6 +2,8 @@ package collections;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
@@ -56,5 +58,28 @@ public class AccountHashMap {
 		System.out.println("\nHere are the values:");
 		for (BankAccount account : values)
 			System.out.println(account.getBalance());
+	}
+	public String displayAccountsWithEqualBalances(Map<String, BankAccount> accountMap){
+		Collection<BankAccount> values = accountMap.values();
+		Set<Double> balances = new HashSet<Double>();
+		Double equalValue = -1.0;
+		for(BankAccount account : values){
+			if(balances.add(account.getBalance()))
+				balances.add(account.getBalance());
+			else
+				equalValue = account.getBalance();
+		}
+		Set<String> equalKeys = new HashSet<String>();
+		for(Map.Entry<String, BankAccount> entry :  accountMap.entrySet()){
+			if(entry.getValue().getBalance() == equalValue)
+				equalKeys.add(entry.getKey());
+		}
+		String toReturn;
+		if(equalValue != -1)
+		toReturn = "These account numbers:  " + String.join(", " , equalKeys) + " have an equal value of " + equalValue.toString(); 
+		else
+		toReturn = "No accounts were found with an equal balance";
+
+		return toReturn;
 	}
 }
