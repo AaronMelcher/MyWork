@@ -5,11 +5,11 @@
 // and the resulting vocabulary density.
 // Input file indicated by a command line argument.
 //---------------------------------------------------------------------------
-package ch05.apps;
+package bookFiles.ch05.apps;
 
 import java.io.*;
 import java.util.*;
-import ch05.collections.*;
+import bookFiles.ch05.collections.*;
 
 public class VocabularyDensity
 {

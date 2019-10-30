@@ -66,8 +66,10 @@ public class AccountHashMap {
 		for(BankAccount account : values){
 			if(balances.add(account.getBalance()))
 				balances.add(account.getBalance());
-			else
+			else{
 				equalValue = account.getBalance();
+				break;
+			}
 		}
 		Set<String> equalKeys = new HashSet<String>();
 		for(Map.Entry<String, BankAccount> entry :  accountMap.entrySet()){
