@@ -1,4 +1,4 @@
-package collections;
+package collections.Assign5;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import collections.BankAccount;
 
 /**
  * This program demonstrates HashMap
@@ -31,8 +32,7 @@ public class AccountHashMap {
 			accountMap.put("103", testAccount);
 
 		// Search for a sample account number
-		System.out
-				.println("\nSearching for the account with account number 103");
+		System.out.println("\nSearching for the account with account number 103");
 		BankAccount foundAccount = accountMap.get("103");
 
 		// If the account was found, display the account balance.
@@ -58,28 +58,30 @@ public class AccountHashMap {
 		for (BankAccount account : values)
 			System.out.println(account.getBalance());
 	}
-	public String displayAccountsWithEqualBalances(Map<String, BankAccount> accountMap){
+
+	public String displayAccountsWithEqualBalances(Map<String, BankAccount> accountMap) {
 		Collection<BankAccount> values = accountMap.values();
 		Set<Double> balances = new HashSet<Double>();
 		Double equalValue = -1.0;
-		for(BankAccount account : values){
-			if(balances.add(account.getBalance()))
+		for (BankAccount account : values) {
+			if (balances.add(account.getBalance()))
 				balances.add(account.getBalance());
-			else{
+			else {
 				equalValue = account.getBalance();
 				break;
 			}
 		}
 		Set<String> equalKeys = new HashSet<String>();
-		for(Map.Entry<String, BankAccount> entry :  accountMap.entrySet()){
-			if(entry.getValue().getBalance() == equalValue)
+		for (Map.Entry<String, BankAccount> entry : accountMap.entrySet()) {
+			if (entry.getValue().getBalance() == equalValue)
 				equalKeys.add(entry.getKey());
 		}
 		String toReturn;
-		if(equalValue != -1)
-		toReturn = "These account numbers:  " + String.join(", " , equalKeys) + " have an equal value of " + equalValue.toString(); 
+		if (equalValue != -1)
+			toReturn = "These account numbers:  " + String.join(", ", equalKeys) + " have an equal value of "
+					+ equalValue.toString();
 		else
-		toReturn = "No accounts were found with an equal balance";
+			toReturn = "No accounts were found with an equal balance";
 
 		return toReturn;
 	}
