@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - CollectionsInClass",
+            "request": "launch",
+            "mainClass": "collections.CollectionsInClass",
+            "projectName": "DataStructures"
+        }
+    ]
+}

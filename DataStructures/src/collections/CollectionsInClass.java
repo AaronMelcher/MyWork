@@ -3,6 +3,7 @@ package collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class CollectionsInClass {
 
@@ -11,8 +12,11 @@ public class CollectionsInClass {
     }
 
     public static void main(String[] args) {
-        String expression = "Let'see see if this if works with works see if that cool and epic sentence epic and cool sentence";
+        Scanner input = new Scanner(System.in);
+        System.out.println("Please enter a bunch of words any number of times:");
+        String expression = input.nextLine();
         List<String> words = Arrays.asList(expression.split(" "));
         System.out.println(removeDuplicates(words));
+        input.close();
     }
 }
