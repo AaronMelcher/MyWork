@@ -1,4 +1,4 @@
-package collections.Assign5;
+package collections.assign5;
 
 import java.util.Collection;
 import java.util.HashMap;
