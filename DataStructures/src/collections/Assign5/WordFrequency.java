@@ -1,19 +1,22 @@
 package collections.assign5;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.*;
 
 public class WordFrequency {
-    public static void main(String[] args) {
-        Scanner document = new Scanner("src/bookFiles/input/historical/constitution.txt");
+    public static void main(String[] args) throws FileNotFoundException {
+        Scanner document = new Scanner(new File("src/bookFiles/input/Keywords.txt"));
         HashSet<String> words = new HashSet<String>();
 
         while(document.hasNext())
+            if(words.add(document.next()))
             words.add(document.next());
 
         HashMap<String, Integer> numOfWords = new HashMap<String, Integer>();
 
         for(String word : words){
-            Integer count = 0;
+            int count = 0;
             while(document.hasNext()){
                 if(word.equals(document.next()))
                     count++;
@@ -21,5 +24,9 @@ public class WordFrequency {
             numOfWords.put(word, count);
         }
         
+        for(Map.Entry<String, Integer> keyAndValue : numOfWords.entrySet()){
+            System.out.println(keyAndValue.getKey() + "->" + keyAndValue.getValue());
+        }
+        document.close();
     }
 }

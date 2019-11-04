@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - WordFrequency",
+            "request": "launch",
+            "mainClass": "collections.assign5.WordFrequency",
+            "projectName": "DataStructures"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - CollectionsInClass",
             "request": "launch",
             "mainClass": "collections.CollectionsInClass",
