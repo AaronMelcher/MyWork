@@ -18,7 +18,7 @@ public class WordFrequency {
         for(String word : words){
             int count = 0;
             while(document.hasNext()){
-                if(word.equals(document.next()))
+                if(document.next().equals(word))
                     count++;
             }
             numOfWords.put(word, count);
