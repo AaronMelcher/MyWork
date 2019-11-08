@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - AccountHashMap",
+            "request": "launch",
+            "mainClass": "collections.assign5.AccountHashMap",
+            "projectName": "DataStructures"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - WordFrequency",
             "request": "launch",
             "mainClass": "collections.assign5.WordFrequency",

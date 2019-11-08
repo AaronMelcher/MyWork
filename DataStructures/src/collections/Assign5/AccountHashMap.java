@@ -21,6 +21,7 @@ public class AccountHashMap {
 		BankAccount johnAccount = new BankAccount(1000);
 		BankAccount sallyAccount = new BankAccount(2000);
 		BankAccount peterAccount = new BankAccount(3000);
+		BankAccount bobAccount = new BankAccount(3000);
 		BankAccount testAccount = new BankAccount(10000);
 
 		// Put some mappings into the HashMap. In each mapping,
@@ -28,6 +29,7 @@ public class AccountHashMap {
 		accountMap.put("101", johnAccount);
 		accountMap.put("102", sallyAccount);
 		accountMap.put("103", peterAccount);
+		accountMap.put("104", bobAccount);
 		if (!accountMap.containsKey("103"))
 			accountMap.put("103", testAccount);
 
@@ -57,9 +59,11 @@ public class AccountHashMap {
 		System.out.println("\nHere are the values:");
 		for (BankAccount account : values)
 			System.out.println(account.getBalance());
+
+		System.out.println(displayAccountsWithEqualBalances(accountMap));
 	}
 
-	public String displayAccountsWithEqualBalances(Map<String, BankAccount> accountMap) {
+	public static String displayAccountsWithEqualBalances(Map<String, BankAccount> accountMap) {
 		Collection<BankAccount> values = accountMap.values();
 		Set<Double> balances = new HashSet<Double>();
 		Double equalValue = -1.0;
@@ -78,7 +82,7 @@ public class AccountHashMap {
 		}
 		String toReturn;
 		if (equalValue != -1)
-			toReturn = "These account numbers:  " + String.join(", ", equalKeys) + " have an equal value of "
+			toReturn = "These account numbers: " + String.join(", ", equalKeys) + " have an equal value of "
 					+ equalValue.toString();
 		else
 			toReturn = "No accounts were found with an equal balance";
