@@ -2,7 +2,6 @@ package collections.assign5;
 
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -33,60 +32,20 @@ public class AccountHashMap {
 		if (!accountMap.containsKey("103"))
 			accountMap.put("103", testAccount);
 
-		// Search for a sample account number
-		System.out.println("\nSearching for the account with account number 103");
-		BankAccount foundAccount = accountMap.get("103");
-
-		// If the account was found, display the account balance.
-		if (foundAccount != null)
-			System.out.println(foundAccount.getBalance());
-		else
-			System.out.println("Account not found in the system");
-
-		// Get a set containing the keys in this map.
-		Set<String> keys = accountMap.keySet();
-
-		// Iterate through the keys, printing each one.
-		System.out.println("Here are the keys and value pairs:");
-		for (String k : keys) {
-			System.out.println(k + ":" + accountMap.get(k));
-		}
-
-		// Get a collection containing the values.
-		Collection<BankAccount> values = accountMap.values();
-
-		// Iterate through the values, printing each one.
-		System.out.println("\nHere are the values:");
-		for (BankAccount account : values)
-			System.out.println(account.getBalance());
-
-		System.out.println(displayAccountsWithEqualBalances(accountMap));
+		displayAccountsWithEqualBalances(accountMap);
 	}
 
-	public static String displayAccountsWithEqualBalances(Map<String, BankAccount> accountMap) {
-		Collection<BankAccount> values = accountMap.values();
-		Set<Double> balances = new HashSet<Double>();
-		Double equalValue = -1.0;
-		for (BankAccount account : values) {
-			if (balances.add(account.getBalance()))
-				balances.add(account.getBalance());
-			else {
-				equalValue = account.getBalance();
-				break;
-			}
+	public static void displayAccountsWithEqualBalances(Map<String, BankAccount> accountMap) {
+		Map<Double, String> duplicateBalances = new HashMap<Double, String>();
+		for (Map.Entry<String, BankAccount> temp : accountMap.entrySet()) {
+			if (!duplicateBalances.containsKey(temp.getValue().getBalance()))
+				duplicateBalances.put(temp.getValue().getBalance(), temp.getKey());
+			else
+				duplicateBalances.replace(temp.getValue().getBalance(),
+						duplicateBalances.get(temp.getValue().getBalance()) + ", " + temp.getKey());
 		}
-		Set<String> equalKeys = new HashSet<String>();
-		for (Map.Entry<String, BankAccount> entry : accountMap.entrySet()) {
-			if (entry.getValue().getBalance() == equalValue)
-				equalKeys.add(entry.getKey());
-		}
-		String toReturn;
-		if (equalValue != -1)
-			toReturn = "These account numbers: " + String.join(", ", equalKeys) + " have an equal value of "
-					+ equalValue.toString();
-		else
-			toReturn = "No accounts were found with an equal balance";
-
-		return toReturn;
+		for (Map.Entry<Double, String> temp : duplicateBalances.entrySet())
+			if (!(temp.getValue().length() == 3))
+				System.out.println("Account numbers " + temp.getValue() + " have an equal balance of " + temp.getKey());
 	}
 }
