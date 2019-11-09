@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class WordFrequency {
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner doc = new Scanner(new File("src/bookFiles/input/Keywords.txt"));
+        Scanner doc = new Scanner(new File("src/bookFiles/input/Animals.txt"));
         String toSplit = "";
 
         while (doc.hasNext()) {

@@ -18,10 +18,11 @@ public class AccountHashMap {
 
 		// Create some account objects
 		BankAccount johnAccount = new BankAccount(1000);
-		BankAccount sallyAccount = new BankAccount(2000);
+		BankAccount sallyAccount = new BankAccount(3000);
 		BankAccount peterAccount = new BankAccount(3000);
 		BankAccount bobAccount = new BankAccount(3000);
-		BankAccount testAccount = new BankAccount(10000);
+		BankAccount jillAccount = new BankAccount(3000);
+		BankAccount fredAccount = new BankAccount(3000);
 
 		// Put some mappings into the HashMap. In each mapping,
 		// account number is the key and bankaccount object is the value
@@ -29,8 +30,8 @@ public class AccountHashMap {
 		accountMap.put("102", sallyAccount);
 		accountMap.put("103", peterAccount);
 		accountMap.put("104", bobAccount);
-		if (!accountMap.containsKey("103"))
-			accountMap.put("103", testAccount);
+		accountMap.put("105", jillAccount);
+		accountMap.put("106", fredAccount);
 
 		displayAccountsWithEqualBalances(accountMap);
 	}
