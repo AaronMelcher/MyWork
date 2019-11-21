@@ -5,13 +5,13 @@
 // Supports three traversal orders Preorder, Postorder & Inorder ("natural")
 //---------------------------------------------------------------------------
 
-package ch07.trees;
+package bookFiles.ch07.trees;
 
 import java.util.*;   // Iterator, Comparator
 
-import ch04.queues.*;
-import ch02.stacks.*;
-import support.BSTNode;      
+import bookFiles.ch04.queues.*;
+import bookFiles.ch02.stacks.*;
+import bookFiles.support.BSTNode;      
 
 public class BinarySearchTree<T> implements BSTInterface<T>
 {

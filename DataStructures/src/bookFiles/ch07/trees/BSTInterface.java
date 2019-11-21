@@ -7,9 +7,9 @@
 // elements. As a general precondition, null elements are not passed as 
 // arguments to any of the methods.
 //----------------------------------------------------------------------------
-package ch07.trees;
+package bookFiles.ch07.trees;
 
-import ch05.collections.CollectionInterface;
+import bookFiles.ch05.collections.CollectionInterface;
 import java.util.Iterator;
 
 public interface BSTInterface<T> extends CollectionInterface<T>, Iterable<T>

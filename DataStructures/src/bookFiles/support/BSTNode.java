@@ -4,7 +4,7 @@
 // Implements nodes holding info of class <T> for a binary search tree.
 //---------------------------------------------------------------------------
 
-package support;
+package bookFiles.support;
 
 public class BSTNode<T>
 {
