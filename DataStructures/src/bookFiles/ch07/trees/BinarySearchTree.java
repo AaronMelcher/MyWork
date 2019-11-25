@@ -354,4 +354,29 @@ public class BinarySearchTree<T> implements BSTInterface<T>
   {
     return getIterator(BSTInterface.Traversal.Inorder);
   }
+  public void printSideways() {
+    printSideways(root, "");
+   }
+   
+   private void printSideways(BSTNode<T> tree, String indent) {
+    if (tree != null) {
+        printSideways(tree.getRight(), indent + "    ");
+        System.out.println(indent + tree.getInfo());
+        printSideways(tree.getLeft(), indent + "    ");
+    }
+   }
+
+  public BSTNode<T> getLeftMostNode(){
+    BSTNode<T> temp = new BSTNode<T>();
+    while(root.hasLeft())
+      temp = root.getLeft();
+    return temp;
+  }
+
+  public BSTNode<T> getRightMostNode(){
+    BSTNode<T> temp = new BSTNode<T>();
+    while(root.hasRight())
+      temp = root.getRight();
+    return temp;
+  }
 }
