@@ -29,18 +29,6 @@ public void setInfo(T info){this.info = info;}
   
   public BSTNode<T> getLeft(){return left;}
   public BSTNode<T> getRight(){return right;}
-
-  public boolean hasLeft(){
-    if(getLeft() != null)
-    return true;
-    return false;
-  }
-
-  public boolean hasRight(){
-    if(getRight() != null)
-    return true;
-    return false;
-  }
 }
  
  

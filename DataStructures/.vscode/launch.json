@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - TestTree",
+            "request": "launch",
+            "mainClass": "assign6.TestTree",
+            "projectName": "DataStructures"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - AccountHashMap",
             "request": "launch",
             "mainClass": "collections.assign5.AccountHashMap",

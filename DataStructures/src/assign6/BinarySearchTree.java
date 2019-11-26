@@ -5,7 +5,7 @@
 // Supports three traversal orders Preorder, Postorder & Inorder ("natural")
 //---------------------------------------------------------------------------
 
-package bookFiles.ch07.trees;
+package assign6;
 
 import java.util.*;   // Iterator, Comparator
 
@@ -385,7 +385,6 @@ public class BinarySearchTree<T> implements BSTInterface<T>
       return node.getInfo();
     else return getRightMostNode(node.getRight());
   }
-
   public void printLeaves(){
       printLeaves(root);
   }
