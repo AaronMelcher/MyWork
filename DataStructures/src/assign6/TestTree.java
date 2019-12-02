@@ -7,7 +7,6 @@ public class TestTree {
 	public static void main(String[] args) {
 		
 		BinarySearchTree<Integer> tree = new BinarySearchTree<Integer>();
-	    Iterator<Integer> iter;
 
 		
 		tree.add(50);
@@ -18,15 +17,18 @@ public class TestTree {
 		tree.add(90);
 		tree.add(80);
 		tree.add(100);
-		
-        tree.printSideways();
-        
+		tree.add(95);
+
+		tree.printSideways();
+		System.out.println();
+		System.out.println("*****Testing printLeaves*****");
 		tree.printLeaves();
-		
+		System.out.println();
+		System.out.println("*****Testing printPaths*****");
 		tree.printPaths();
-		
-		 iter = tree.getIterator(BSTInterface.Traversal.Inorder);
-		 while (iter.hasNext())
-			 System.out.print(iter.next()+" ");
+		System.out.println();
+		System.out.println("*****Testing getSecondLargest*****");
+		System.out.println(tree.getSecondLargest());
+	
     }
 }

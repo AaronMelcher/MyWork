@@ -397,9 +397,21 @@ public class BinarySearchTree<T> implements BSTInterface<T>
     System.out.println(node.getInfo());
   }
 
-  public T getSecondLargest(BSTNode<T> node){
-    BSTNode<T> nodeBef = null;
-    BSTNode<T> nodeCurr = root;
+  public T getSecondLargest(){
+    BSTNode<T> prevNode = null;
+    BSTNode<T> curNode = root;
+      
+    while(curNode.getRight() != null){
+      prevNode = curNode;
+      curNode = curNode.getRight();
+    }
+    if(curNode.getLeft() != null){
+        curNode = curNode.getLeft();
+        while(curNode.getRight() != null)
+          curNode = curNode.getRight();
+      prevNode = curNode;
+    }      
+      return prevNode.getInfo();
   }
 
   public void printPaths(){
@@ -407,7 +419,7 @@ public class BinarySearchTree<T> implements BSTInterface<T>
     printPaths(root, path);
   }
 
-  public void printPaths(BSTNode<T> node, final ArrayList<T> path){
+  public void printPaths(BSTNode<T> node, ArrayList<T> path){
     if(node == null)
       return;
     else
