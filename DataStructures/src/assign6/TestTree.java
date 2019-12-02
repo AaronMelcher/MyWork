@@ -21,7 +21,9 @@ public class TestTree {
 		
         tree.printSideways();
         
-        tree.printLeaves();
+		tree.printLeaves();
+		
+		tree.printPaths();
 		
 		 iter = tree.getIterator(BSTInterface.Traversal.Inorder);
 		 while (iter.hasNext())

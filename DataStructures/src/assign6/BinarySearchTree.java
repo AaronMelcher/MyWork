@@ -105,7 +105,7 @@ public class BinarySearchTree<T> implements BSTInterface<T>
     int count = 0;
     if (root != null)
     {
-      LinkedStack<BSTNode<T>> nodeStack = new LinkedStack<BSTNode<T>>();
+      final LinkedStack<BSTNode<T>> nodeStack = new LinkedStack<BSTNode<T>>();
       BSTNode<T> currNode;
       nodeStack.push(root);
       while (!nodeStack.isEmpty())
@@ -159,7 +159,7 @@ public class BinarySearchTree<T> implements BSTInterface<T>
       return node.getInfo();  // target is found
   }
 
-  public T get(T target)
+  public T get(final T target)
   // Returns info i from node of this BST where comp.compare(target, i) == 0;
   // if no such node exists, returns null.
   {
@@ -316,7 +316,7 @@ public class BinarySearchTree<T> implements BSTInterface<T>
     };
   }
 
-  private void preOrder(BSTNode<T> node, LinkedQueue<T> q)
+  private void preOrder(BSTNode<T> node, final LinkedQueue<T> q)
   // Enqueues the elements from the subtree rooted at node into q in preOrder.
   {
     if (node != null)
@@ -327,7 +327,7 @@ public class BinarySearchTree<T> implements BSTInterface<T>
     }
   }
 
-  private void inOrder(BSTNode<T> node, LinkedQueue<T> q)
+  private void inOrder(BSTNode<T> node, final LinkedQueue<T> q)
   // Enqueues the elements from the subtree rooted at node into q in inOrder.  
   {
     if (node != null)
@@ -338,7 +338,7 @@ public class BinarySearchTree<T> implements BSTInterface<T>
     }
   }
 
-  private void postOrder(BSTNode<T> node, LinkedQueue<T> q)
+  private void postOrder(BSTNode<T> node, final LinkedQueue<T> q)
   // Enqueues the elements from the subtree rooted at node into q in postOrder.  
   {
     if (node != null)
@@ -358,7 +358,7 @@ public class BinarySearchTree<T> implements BSTInterface<T>
     printSideways(root, "");
    }
    
-   private void printSideways(BSTNode<T> tree, String indent) {
+   private void printSideways(BSTNode<T> tree, final String indent) {
     if (tree != null) {
         printSideways(tree.getRight(), indent + "    ");
         System.out.println(indent + tree.getInfo());
@@ -395,5 +395,37 @@ public class BinarySearchTree<T> implements BSTInterface<T>
       printLeaves(node.getRight());
     if(node.getLeft() == null && node.getRight() == null)
     System.out.println(node.getInfo());
+  }
+
+  public T getSecondLargest(BSTNode<T> node){
+    BSTNode<T> nodeBef = null;
+    BSTNode<T> nodeCurr = root;
+  }
+
+  public void printPaths(){
+    final ArrayList<T> path = new ArrayList<T>();
+    printPaths(root, path);
+  }
+
+  public void printPaths(BSTNode<T> node, final ArrayList<T> path){
+    if(node == null)
+      return;
+    else
+      path.add(node.getInfo());
+
+    if(node.getLeft() == null && node.getRight() == null)
+      printArrayList(path);
+    else
+      {
+        printPaths(node.getLeft(),new ArrayList<T>(path));
+        printPaths(node.getRight(), new ArrayList<T>(path));
+      }
+  }
+  //Helper method to print the ArrayList
+  public void printArrayList(ArrayList<T> path){
+    for(final T info : path){
+      System.out.print(info + ", ");
+    }
+    System.out.println("");
   }
 }

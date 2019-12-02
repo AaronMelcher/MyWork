@@ -397,12 +397,3 @@ public class BinarySearchTree<T> implements BSTInterface<T>
     if(node.getLeft() == null && node.getRight() == null)
     System.out.println(node.getInfo());
   }
-
-  public T getSecondLargest(){
-    return null;
-  }
-
-  public void printPaths(){
-
-  }
-}
