@@ -429,7 +429,7 @@ public class BinarySearchTree<T> implements BSTInterface<T>
       printArrayList(path);
     else
       {
-        printPaths(node.getLeft(),new ArrayList<T>(path));
+        printPaths(node.getLeft(), new ArrayList<T>(path));
         printPaths(node.getRight(), new ArrayList<T>(path));
       }
   }

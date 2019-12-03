@@ -1,7 +1,5 @@
 package assign6;
 
-import java.util.Iterator;
-
 public class TestTree {
 
 	public static void main(String[] args) {
